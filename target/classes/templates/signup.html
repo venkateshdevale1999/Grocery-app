@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" type="text/css" href="logstyle2.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="icon" href="basket-shop.png"/>
+</head>
+<body>
+<div class="alert alert-danger" role="alert" th:if="${success}">
+<script>
+Swal.fire({
+            title: 'User added successfully',
+            icon: 'success',
+            text: 'login with entered credentials',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Login'
+        }).then(result => {
+            if (result.value) {
+                document.location='/login';
+            }
+        })
+</script>
+</div>
+
+<div class="alert alert-danger" role="alert" th:if="${error}">
+<script>
+swal.fire("User already exist!","Try to login","warning");
+</script>
+</div>
+    <img class="wave" src="wave.png">
+    <div class="container">
+        <div class="img">
+           <img src="bg.svg">
+        </div>
+    <div class="login-content">
+            <form action="/saveuser" th:action="@{/saveuser}" method="POST">
+            <img src="avatar.svg">
+            <h2 class="title">Register</h2>
+            <div class="input-div one">
+            <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+
+                    <h5>User Name</h5>
+                        <input type="text" name="username" class="input" required>
+                </div>
+            </div>
+            <div class="input-div one">
+            <div class="i">
+                    <i class="material-icons">email</i>
+                </div>
+                <div class="div">
+
+                    <h5>Email</h5>
+                        <input type="email" name="useremail" class="input" required>
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" name="password" class="input" required>
+                </div>
+            </div>
+             <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="div">
+                    <h5>Phone No</h5>
+                    <input type="number" name="phoneno" class="input" required>
+                </div>
+                
+            </div>
+            <input type="submit" class="btn" name="" value="SignUP" />
+		<a th:href = "@{/login}">already have account?</a>
+        </form>
+    </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

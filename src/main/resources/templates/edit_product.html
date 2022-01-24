@@ -526,7 +526,7 @@ tr td:last-child {
                 <tr>
                     <td class="labels">Product ID:</td>
                     <td>
-                        <input type="text" name="proid" readonly="readonly" th:value="${item.proid}" />
+                        <input type="number" name="proid" readonly="readonly" th:value="${item.proid}" />
                     </td>
                 </tr>
                 <tr>
@@ -543,11 +543,11 @@ tr td:last-child {
                 </tr>
                 <tr>
                     <td class="labels">Quantity</td>
-                    <td><input type="text" name="quantity" th:value="${item.quantity}" /></td>
+                    <td><input type="number" name="quantity" th:value="${item.quantity}" /></td>
                 </tr>
                 <tr>
                     <td class="labels">Price:</td>
-                    <td><input type="text" name="price" th:value="${item.price}" /></td>
+                    <td><input type="number" name="price" th:value="${item.price}" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="submit">Save</button> </td>

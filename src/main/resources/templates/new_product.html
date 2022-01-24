@@ -527,17 +527,17 @@ swal.fire({
 <table border="0" cellpadding="10">
 <tr>
 <td>Product ID:</td>
-<td><input type="text" name="proid" required/></td>
+<td><input type="number" name="proid" required/></td>
 </tr>
 <tr>
 <td>Category </td>
 <td>
-<select name="categories" required style="width:100%; height:38%">
-<option>Select category</option>
-<option>fruit</option>
-<option>vegetable</option>
-<option>meat</option>
-<option>dailyneeds</option>
+<select name="categories" style="width:100%; height:38%;" required>
+<option hidden value="">Select category</option>
+<option value="fruit">fruit</option>
+<option value="vegetable">vegetable</option>
+<option value="meat">meat</option>
+<option value="dailyneeds">dailyneeds</option>
 </select>
 </td>
 </tr>
@@ -546,11 +546,11 @@ swal.fire({
 </tr>
 <tr>
 <td>Quantity</td>
-<td><input type="text" name="quantity"  required/></td>
+<td><input type="number" name="quantity"  required/></td>
 </tr>
 <tr>
 <td>Price:</td>
-<td><input type="text" name="price" required/></td>
+<td><input type="number" name="price" required/></td>
 </tr>
 </table>
 <label>Photos: </label>

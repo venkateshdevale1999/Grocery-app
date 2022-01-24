@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+	<link rel="icon" href="basket-shop.png"/>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 140px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.show {display: block;}
+    </style>
+    
+    </head>
+<body>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('#dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!-- header section starts  -->
+
+<header>
+
+    <div class="header-1">
+
+        <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>grocery store</a>
+		<i><h1 style="display:inline-block;">Welcome&nbsp;&nbsp;</h1><h1 th:text="${username}" style="display:inline-block;"></h1></i>
+
+    </div>
+
+    <div class="header-2">
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#category">category</a>
+            <a href="#contact">contact</a>
+        </nav>
+		
+        <div class="icons">
+        	
+            <a href="#" th:href="@{'/cartShow'}" class="fas fa-shopping-cart" ></a>
+            <div class="dropdown">
+  <a onclick="myFunction()" id="dropbtn" class="fa fa-user-circle-o" style="margin-left:29%;"></a>
+  <div id="myDropdown" class="dropdown-content">
+    <!--<a href="#">Change password</a>-->
+    <a th:href="@{'/myorders'}">My Orders</a>
+    <a th:href="@{/login}">Logout</a>
+  </div>
+</div>
+            
+        </div>
+		
+    </div>
+
+</header>
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="home-img.png" alt="">
+    </div>
+
+    <div class="content">
+        <span>fresh and organic</span>
+        <h3>your daily need Groceries</h3>
+        <a href="#category" class="btn">get started<br><i class="fa fa-sort-down" style="font-size:28px;color:yellow"></i></a>
+    </div>
+
+</section>
+
+<!-- category section starts  -->
+
+<section class="category" id="category">
+
+    <h1 class="heading">shop by <span>category</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>vegetables</h3>
+            
+            <img src="category-1.png" alt="">
+            <a th:href="@{/addtocarttable/vegetable}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>fruits</h3>
+            
+            <img src="category-4.png" alt="">
+            <a th:href="@{/addtocarttable/fruit}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>meat</h3>
+            
+            <img src="category-3.png" alt="">
+            <a th:href="@{/addtocarttable/meat}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>Daily needs</h3>
+            <br>
+            <img src="category-2.png" alt=""><br>
+            <a th:href="@{/addtocarttable/dailyneeds}" class="btn">shop now</a>
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+<section class="footer" id="contact">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3 class="box">contact us </h3>
+            <p>5,Neeladri Rd,opposite Ajmera Infinity,Neeladri Nagar,Electronic City Phase 1,Doddhathoguru,Bengaluru,Karnataka 560100</p>
+            <div class="share">
+                <a href="#" class="btn fab fa-facebook-f"></a>
+                <a href="#" class="btn fab fa-twitter"></a>
+                <a href="#" class="btn fab fa-instagram"></a>
+                <a href="#" class="btn fab fa-linkedin"></a>
+            </div>
+        </div>
+        
+        <div class="box">
+            <h3>our location</h3>
+            <div class="links">
+                <a href="#">india</a>
+                <a href="#">USA</a>
+                <a href="#">france</a>
+                <a href="#">japan</a>
+                <a href="#">russia</a>
+            </div>
+        </div>
+
+       
+
+</section>
+
+<!-- footer section ends -->
+<!-- custom js file link  -->
+<script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="logstyle.css">
+    <link rel="icon" href="basket-shop.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+
+<script th:if="${error}">
+swal.fire("Invalid Password","","error");
+</script>
+
+<script th:if="${error1}">
+swal.fire("Invalid Email Address","","error");
+</script>
+
+    <img class="wave" src="wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="bg.svg">
+        </div>
+    <div class="login-content">
+        <form action="#" th:action="@{/check}" method="POST">
+            <img src="avatar.svg">
+            <h2 class="title">Welcome</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="material-icons">email</i>
+                </div>
+                <div class="div">
+
+                    <h5>Email</h5>
+                        <input type="email" name="useremail" class="input" required>
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" name="password" class="input" required>
+                </div>
+            </div>
+            <input type="submit" class="btn" name="" value="LogIn" />
+<!--            <span>or</span>-->
+		<a th:href = "@{/signup}" > don't have account? </a><br>
+        <a th:href = "@{/admin}" class="class-2"> login as admin </a>
+            
+        </form>
+        
+    </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -221,12 +221,30 @@ background:rgb(255, 128, 0);
 <!--<i class="fa fa-spinner fa-pulse"></i>-->
 <div class="alert alert-danger" role="alert" th:if="${error}">
 <script>
-swal.fire("Invalid Password!","","error");
+swal.fire({
+	title:"Invalid Password!",
+	icon:"error",
+	timerProgressBar: true,
+	timer:3000,
+	toast: true
+	
+	})
 </script>
 </div>
 <div class="alert alert-danger" role="alert" th:if="${error1}">
 <script>
-swal.fire("Invalid AdminId!","","error");
+swal.queue([{
+	title:"Invalid AdminId!",
+	icon:"error"
+	},
+	{
+		title:"Change passwd",
+		input: {'':'password'}
+	}
+	
+	]).then(result=>{
+		alert(result.value[1]);
+	})
 </script>
 </div>
 <div class="box">
